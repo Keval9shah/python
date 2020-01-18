@@ -1,2 +1,2 @@
-# Prgmng
-my first one
+# Python
+best i can do with python
