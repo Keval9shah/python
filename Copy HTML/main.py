@@ -16,11 +16,12 @@ y[-1] = ''
 y[-2] = y[-2][:-1]
 n = ''.join(y)
 
-headers = {"User-Agent": 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.130 Safari/537.36'}
+headers = {
+    "User-Agent": 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.130 Safari/537.36'}
 page = requests.get(URL, headers=headers)
 soup = BeautifulSoup(page.content, 'html.parser')
 
-save_path = "C:/Users/KEVAL/Desktop/Charm/"
+save_path = "C:/Users/skeva/Desktop/Extra/"
 completeName = os.path.join(save_path, n+".html")
 
 c = 0
