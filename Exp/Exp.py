@@ -34,7 +34,8 @@ def send_mail():
     server.starttls()
     server.ehlo()
 
-    server.login('skeval904@gmail.com', 'tpzenvjazkwkoqoa')
+    #key is encrypted by simple pass
+    server.login('skeval904@gmail.com', 'p{ousmxrpxk{cmcg')
 
     subject = 'Test mail'
     body = 'Aa rahi link \n'+URL+'\n'+str(price)
