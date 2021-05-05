@@ -34,7 +34,7 @@ def send_mail():
     server.starttls()
     server.ehlo()
 
-    server.login('skeval904@gmail.com', 'tpzenvjazkwkoqoa')
+    server.login('skeval904@gmail.com', '................')
 
     subject = 'Test mail'
     body = 'Aa rahi link \n'+URL+'\n'+str(price)
