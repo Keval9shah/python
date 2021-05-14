@@ -2,6 +2,7 @@ import requests
 from bs4 import BeautifulSoup
 import smtplib
 
+
 URL = input("Enter URL : ")
 
 Email = input("Enter your Email : ")
@@ -34,7 +35,9 @@ def send_mail():
     server.starttls()
     server.ehlo()
 
-    server.login('skeval904@gmail.com', '................')
+
+    #key is encrypted by simple pass
+    server.login('skeval904@gmail.com', 'p{ousmxrpxk{cmcg')
 
     subject = 'Test mail'
     body = 'Aa rahi link \n'+URL+'\n'+str(price)
