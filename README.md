@@ -1,2 +1,2 @@
 # Python
-best i can do with python
+Learning Python and wonders of it.
