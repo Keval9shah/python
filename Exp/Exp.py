@@ -35,6 +35,7 @@ def send_mail():
     server.starttls()
     server.ehlo()
 
+
     #key is encrypted by simple pass
     server.login('skeval904@gmail.com', 'p{ousmxrpxk{cmcg')
 
