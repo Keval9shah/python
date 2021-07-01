@@ -19,7 +19,7 @@ array = []
 
 
 def chess(s, d, x=8):
-    global start
+    global start, end
     start = time.time()
     if d > s:
         s, d = d, s
@@ -51,15 +51,20 @@ def chess(s, d, x=8):
     # print(YXratio)
     m = 0
     while array[dst[0]][dst[1]] >= 1000:
-        addval(src, dst, dvsbl, m, YXratio)
+        x = [min(dvsbl-1, max(max(0, dst[0]-3), src[0]-int(m *
+                                                           max(1, YXratio))-2)), min(dvsbl, max(dst[0]+3, src[0]+3-m))]
+        y = [min(dvsbl-1, max(max(0, dst[1]-3), src[1]-int(m *
+                                                           max(1, YXratio))-2)), min(dvsbl, max(dst[1]+3, src[1]+3-m))]
+        addval(src, dst, dvsbl, x, y)
         m += 1
+    end = time.time() - start
     return array[dst[0]][dst[1]]
 
 
-def addval(src, dst, dvsbl, m, YXratio):
+def addval(src, dst, dvsbl, x, y):
     global array
-    for i in range(min(dvsbl-1, max(max(0, dst[0]-3), src[0]-int(m*max(1, YXratio))-2)), min(dvsbl, max(dst[0]+3, src[0]+3-m))):
-        for j in range(min(dvsbl-1, max(max(0, dst[1]-3), src[1]-int(m*max(1, YXratio))-2)), min(dvsbl, max(dst[1]+3, src[1]+3-m))):
+    for i in range(x[0], x[1]):
+        for j in range(y[0], y[1]):
             minn = 1000
             if [i, j] != src:
                 for k in range(8):
@@ -70,8 +75,8 @@ def addval(src, dst, dvsbl, m, YXratio):
                 array[i][j] = minn
 
 
-print("--->", colored(chess(2, 9999), 'blue', attrs=['bold']), "steps")
-print("--- ", (time.time() - start), " seconds ---")
+print("--->", colored(chess(0, 19599), 'blue', attrs=['bold']), "steps")
+print("--- ", (end), " seconds ---")
 
 # for i in range(dvsbl):
 #   for j in range(dvsbl):
