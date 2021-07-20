@@ -16,9 +16,9 @@ elif q == "yt":
     webbrowser.open("https://www.youtube.com/results?search_query="+a)
 
 elif q == "an":
-    a = input("Anime Search : ")
+    an = input("Anime Search : ")
 
-    URL = "https://myanimelist.net/anime.php?q="+a
+    URL = "https://myanimelist.net/anime.php?q="+an
 
     page = requests.get(URL, headers=headers)
 
