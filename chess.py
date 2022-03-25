@@ -18,21 +18,21 @@ psblmv = [(-2, -1), (-2, 1), (2, -1), (2, 1),
 array = []
 
 
-def chess(s, d, x=8):
+def chess(source, destination, x=8):
     global start, end
     start = time.time()
-    s -= 1
-    d -= 1
-    if s < 0 or d < 0:
+    source -= 1
+    destination -= 1
+    if source < 0 or destination < 0:
         print("wrong parameters")
         return "error 42"
-    if d > s:
-        s, d = d, s
+    if destination > source:
+        source, destination = destination, source
     global array, dvsbl, dst
-    dvsbl = max(n(s), n(d), x)
+    dvsbl = max(n(source), n(destination), x)
     # 1st is | & 2nd is --
-    src = [s//dvsbl, s % dvsbl]
-    dst = [d//dvsbl, d % dvsbl]
+    src = [source//dvsbl, source % dvsbl]
+    dst = [destination//dvsbl, destination % dvsbl]
     # print(src,dst)
     if src[0]-dst[0] >= 0 and src[1]-dst[1] >= 0:
         pass
@@ -41,12 +41,8 @@ def chess(s, d, x=8):
         src[1] = dst[1]
         dst[1] = temp
     if dst[0] > dst[1]:
-        td = dst[0]
-        dst[0] = dst[1]
-        dst[1] = td
-        ts = src[0]
-        src[0] = src[1]
-        src[1] = ts
+        dst[0],dst[1]=dst[1],dst[0]
+        src[0],src[1]=src[1],src[0]
     array = [[dvsbl for i in range(dvsbl)] for j in range(dvsbl)]
     array[src[0]][src[1]] = 0
     YXratio = abs(src[0]-dst[0])/abs(max(src[1]-dst[1], 1))
